@@ -11,3 +11,5 @@ backend/tests/fixtures/private/
 *.log
 test-results/
 playwright-report/
+.tools/
+.wrangler/

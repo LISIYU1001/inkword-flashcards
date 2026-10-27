@@ -2,7 +2,9 @@
 
 # Inkword · 英语外刊学习
 
-版本 0.2：WPS PDF 高亮 → 原文上下文 → 确认词条 → OpenAI 结构化释义 → 自动形成闪卡 → 三档复习反馈。
+版本 0.3：WPS PDF 高亮 → 原文上下文 → 确认词条 → Agnes/OpenAI 结构化释义 → 自动形成闪卡 → 三档复习反馈。
+
+公网演示采用 Cloudflare Pages 静态前端 + Koyeb 免费 FastAPI 后端，参见 [部署说明](docs/deployment.md)。
 
 ## 已实现
 
@@ -65,7 +67,7 @@ npm run build
 
 如果 venv 的 ensurepip 失败：`python -m pip --python .venv/Scripts/python.exe install -r requirements.lock.txt`。
 
-前端 `.env.local` 可设置服务端 `PDF_API_URL`，默认 `http://127.0.0.1:8000`。不要配置 `NEXT_PUBLIC_*` 密钥。
+前端在本机地址下默认连接 `http://127.0.0.1:8000`。公网构建必须设置 `NEXT_PUBLIC_API_URL` 为 Koyeb HTTPS 地址。这个变量只放 API 地址，不要配置任何 `NEXT_PUBLIC_*` 密钥。
 
 ## 数据与架构
 
@@ -83,7 +85,7 @@ backend/app/parser.py               PDF 提取与上下文
 backend/app/explanations.py         OpenAI 请求、结构化结果、错误归类
 backend/app/main.py                 FastAPI 上传/解释/状态接口
 backend/tests/                     PDF 和 SDK 合约测试
-frontend/app/api/                  服务端 API 转发
+frontend/lib/api.ts               本机/公网后端地址边界
 frontend/components/workspace.tsx   上传、确认与批量解释
 frontend/components/explanation.tsx 释义及来源展示
 frontend/components/flashcards.tsx  复习会话及反馈
@@ -115,6 +117,6 @@ npx playwright test --reporter=list
 
 停止生成是在当前请求完成后停止后续请求，当前请求可能已计费。本机无密钥，真实 API 权限、模型输出质量及费用尚未验证。
 
-本版本面向个人本机使用。localStorage 没有跨标签页事务，请避免同时编辑同一篇文章。公网部署前需要认证、预算、独立解析进程及资源隔离。PyMuPDF 发布许可需遵循其 AGPL/商业条款。
+公网版是无账户的简历演示；localStorage 没有跨标签页事务，请避免同时编辑同一篇文章。后端使用单实例内存限流，实例重启后会重置；不适合正式多用户产品。PyMuPDF 发布许可需遵循其 AGPL/商业条款。
 
 参考：[OpenAI 结构化输出](https://developers.openai.com/api/docs/guides/structured-outputs)、[GPT-4.1 mini](https://developers.openai.com/api/docs/models/gpt-4.1-mini)、[PyMuPDF](https://pymupdf.readthedocs.io/en/latest/recipes-text.html)。
