@@ -13,3 +13,5 @@ test-results/
 playwright-report/
 .tools/
 .wrangler/
+.open-next/
+.dev.vars*
