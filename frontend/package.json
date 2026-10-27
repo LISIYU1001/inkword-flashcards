@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --webpack --hostname 127.0.0.1",
     "build": "next build --webpack",
-    "start": "next start --hostname 127.0.0.1",
+    "start": "python -m http.server 3000 --bind 127.0.0.1 --directory out",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
   },

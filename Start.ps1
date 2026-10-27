@@ -1,8 +1,8 @@
 $ErrorActionPreference = 'Stop'
 $projectRoot = $PSScriptRoot
 $pythonPath = Join-Path $projectRoot 'backend/.venv/Scripts/python.exe'
-$nextPath = Join-Path $projectRoot 'frontend/node_modules/next/dist/bin/next'
-if (!(Test-Path -LiteralPath $pythonPath) -or !(Test-Path -LiteralPath $nextPath) -or !(Test-Path -LiteralPath (Join-Path $projectRoot 'frontend/.next/BUILD_ID'))) {
+$staticIndex = Join-Path $projectRoot 'frontend/out/index.html'
+if (!(Test-Path -LiteralPath $pythonPath) -or !(Test-Path -LiteralPath $staticIndex)) {
     throw 'Install dependencies and run npm run build first. See README.md.'
 }
 foreach ($port in @(3000, 8000)) {
@@ -15,7 +15,7 @@ $backendProcess = $null
 $frontendProcess = $null
 try {
     $backendProcess = Start-Process -FilePath $pythonPath -ArgumentList '-m uvicorn app.main:app --host 127.0.0.1 --port 8000' -WorkingDirectory (Join-Path $projectRoot 'backend') -WindowStyle Hidden -PassThru -RedirectStandardOutput (Join-Path $logDir 'backend.out.log') -RedirectStandardError (Join-Path $logDir 'backend.err.log')
-    $frontendProcess = Start-Process -FilePath (Get-Command node).Source -ArgumentList ('"' + $nextPath + '" start --hostname 127.0.0.1') -WorkingDirectory (Join-Path $projectRoot 'frontend') -WindowStyle Hidden -PassThru -RedirectStandardOutput (Join-Path $logDir 'frontend.out.log') -RedirectStandardError (Join-Path $logDir 'frontend.err.log')
+    $frontendProcess = Start-Process -FilePath $pythonPath -ArgumentList ('-m http.server 3000 --bind 127.0.0.1 --directory "' + (Join-Path $projectRoot 'frontend/out') + '"') -WorkingDirectory (Join-Path $projectRoot 'frontend') -WindowStyle Hidden -PassThru -RedirectStandardOutput (Join-Path $logDir 'frontend.out.log') -RedirectStandardError (Join-Path $logDir 'frontend.err.log')
     Write-Host 'Inkword: http://127.0.0.1:3000'
     Write-Host 'Keep this window open. Ctrl+C stops both services. Logs: .logs/'
     while (!$backendProcess.HasExited -and !$frontendProcess.HasExited) { Start-Sleep -Seconds 1 }

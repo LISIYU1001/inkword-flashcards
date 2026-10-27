@@ -41,6 +41,7 @@ import {
 } from "@/lib/learning";
 import { Explanation } from "./explanation";
 import { Flashcards } from "./flashcards";
+import { apiUrl } from "@/lib/api";
 
 type View = "home" | "library" | "editor" | "review";
 
@@ -68,6 +69,7 @@ export function Workspace() {
   const [query, setQuery] = useState("");
   const [pdfUrl, setPdfUrl] = useState("");
   const [sourceId, setSourceId] = useState("");
+  const [retryFile, setRetryFile] = useState<File | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const [aiStatus, setAiStatus] = useState<{
     configured: boolean;
@@ -87,7 +89,7 @@ export function Workspace() {
 
   async function refreshAiStatus() {
     try {
-      const response = await fetch("/api/ai/status", { cache: "no-store" });
+      const response = await fetch(apiUrl("/api/ai/status"), { cache: "no-store" });
       const status = await response.json();
       setAiStatus({
         configured: status.configured === true,
@@ -165,10 +167,11 @@ export function Workspace() {
       return;
     }
     setBusy(true);
+    setRetryFile(file);
     try {
       const body = new FormData();
       body.append("file", file);
-      const response = await fetch("/api/parse", {
+      const response = await fetch(apiUrl("/api/parse"), {
         method: "POST",
         body,
         signal: AbortSignal.timeout(70000),
@@ -202,6 +205,7 @@ export function Workspace() {
       setAiErrors({});
       setPdfUrl(URL.createObjectURL(file));
       setSourceId(article.id);
+      setRetryFile(null);
       try {
         persist(article);
         setDirty(false);
@@ -213,7 +217,9 @@ export function Workspace() {
       }
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : "无法连接解析服务，请稍后重试。",
+        err instanceof Error
+          ? `${err.message} 免费演示服务长时间无人使用时会休眠，请等待约 30–60 秒后使用同一文件重试。`
+          : "无法连接解析服务。免费演示服务可能正在唤醒，请等待约 30–60 秒后重试。",
       );
     } finally {
       setBusy(false);
@@ -356,7 +362,7 @@ export function Workspace() {
             throw new Error(
               "词条最多 200 字符，上下文最多 6000 字符，请精简后重新确认。",
             );
-          const response = await fetch("/api/explain", {
+          const response = await fetch(apiUrl("/api/explain"), {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -554,6 +560,11 @@ export function Workspace() {
             <div className="alert error" role="alert">
               <div>{error}</div>
               <div className="alert-actions">
+                {retryFile && (
+                  <button disabled={busy} onClick={() => upload(retryFile)}>
+                    重试上传
+                  </button>
+                )}
                 <button onClick={exportRawBackup}>导出本地原始备份</button>
                 <button aria-label="关闭错误提示" onClick={() => setError("")}>
                   <X size={16} />
