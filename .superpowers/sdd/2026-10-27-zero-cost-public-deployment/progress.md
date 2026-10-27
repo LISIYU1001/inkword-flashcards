@@ -15,7 +15,7 @@
 
 - [x] Task 1: Public API boundary and static frontend
 - [x] Task 2: Koyeb-safe backend boundary
-- [ ] Task 3: Cross-origin end-to-end behavior
+- [x] Task 3: Cross-origin end-to-end behavior
 - [ ] Task 4: Platform configuration and handoff
 
 ## Task 1 evidence
@@ -31,4 +31,10 @@
 - GREEN: 63 backend tests passed with the user-owned WPS PDF, including explicit CORS, unsafe-origin rejection, per-client minute/day limits, and 429-before-provider behavior.
 - Added a non-root Python image, environment-driven `${PORT:-8000}`, and a Docker context that excludes secrets, tests, caches, and fixtures.
 - Local Docker is not installed, so image construction is deferred to Koyeb's remote builder. Cost if wrong: a container-only packaging issue may be discovered during the platform build; the full application suite has passed against the same dependency manifest.
+
+## Task 3 evidence
+
+- RED: the new browser boundary test timed out because the current preview did not issue a request to the separate backend origin.
+- GREEN: Playwright builds and serves the static export on port 3100 and FastAPI on port 8100 with an explicit CORS origin.
+- All 14 browser tests passed with the user-owned WPS PDF, covering real upload/parsing, editing, persistence, structured explanation fixtures, flashcard feedback, mobile layout, failure recovery, and separate-origin communication.
 
