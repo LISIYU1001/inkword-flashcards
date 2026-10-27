@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: inkword-api
+    runtime: docker
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: AI_PROVIDER
+        value: agnes
+      - key: AGNES_API_KEY
+        sync: false
+      - key: AGNES_MODEL
+        value: agnes-2.5-flash
+      - key: ALLOWED_ORIGINS
+        value: https://inkword-flashcards.pages.dev
+      - key: DEMO_REQUESTS_PER_MINUTE
+        value: "8"
+      - key: DEMO_EXPLANATIONS_PER_DAY
+        value: "30"

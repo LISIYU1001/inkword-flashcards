@@ -4,6 +4,7 @@
 
 - Initialized local Git and work on `deploy/free-hosting` in place because the project had no repository or commit from which to create an isolated worktree. The baseline `main` commit provides rollback; if this ruling is wrong, filesystem-level isolation is missing but branch/commit rollback remains available.
 - The SDD shell helpers cannot start in the managed Windows environment (`NtCreateDirectoryObject` access denied), so this ledger records the equivalent task boundaries and verification evidence manually.
+- Replaced Koyeb with Render after authenticated inspection showed that the Koyeb control panel available to this new account exposes no Apps, Services, Secrets, or API-token creation during its post-Mistral redesign. Render still provides a Free FastAPI Web Service; cost if wrong: its 15-minute sleep is more aggressive and deployment requires a Git repository.
 
 ## Preflight interfaces
 

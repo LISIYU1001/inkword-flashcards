@@ -4,7 +4,7 @@
 
 版本 0.3：WPS PDF 高亮 → 原文上下文 → 确认词条 → Agnes/OpenAI 结构化释义 → 自动形成闪卡 → 三档复习反馈。
 
-公网演示采用 Cloudflare Pages 静态前端 + Koyeb 免费 FastAPI 后端，参见 [部署说明](docs/deployment.md)。
+公网演示采用 Cloudflare Pages 静态前端 + Render 免费 FastAPI 后端，参见 [部署说明](docs/deployment.md)。
 
 ## 已实现
 
