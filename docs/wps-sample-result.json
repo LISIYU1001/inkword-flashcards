@@ -1,0 +1,345 @@
+{
+  "schema_version": 1,
+  "filename": "第10篇-Lifelong learning【原文】.pdf",
+  "document_id": "0b5a50d29472ec690caa4fd62f4df695f81416e08dbe5e4c9ab6592dd51f550d",
+  "page_count": 4,
+  "highlight_count": 9,
+  "entries": [
+    {
+      "id": "0b5a50d29472ec69-p1-a49",
+      "term": "daunting",
+      "raw_text": "daunting",
+      "kind": "word",
+      "page": 1,
+      "rect": [
+        205.39500427246094,
+        405.35101318359375,
+        252.30299377441406,
+        419.8470153808594
+      ],
+      "quads": [
+        [
+          [
+            205.39500427246094,
+            405.35101318359375
+          ],
+          [
+            252.30299377441406,
+            405.35101318359375
+          ],
+          [
+            205.39500427246094,
+            419.8470153808594
+          ],
+          [
+            252.30299377441406,
+            419.8470153808594
+          ]
+        ]
+      ],
+      "context": "The practicalities are daunting",
+      "context_source": "pdf",
+      "context_status": "fragment",
+      "warnings": [
+        "上下文可能是片段或存在复杂排版，请对照原文确认。"
+      ]
+    },
+    {
+      "id": "0b5a50d29472ec69-p1-a53",
+      "term": "keep pace with",
+      "raw_text": "keep pace with",
+      "kind": "phrase",
+      "page": 1,
+      "rect": [
+        225.18299865722656,
+        440.3910217285156,
+        306.74700927734375,
+        454.88702392578125
+      ],
+      "quads": [
+        [
+          [
+            225.18299865722656,
+            440.3910217285156
+          ],
+          [
+            306.74700927734375,
+            440.3910217285156
+          ],
+          [
+            225.18299865722656,
+            454.88702392578125
+          ],
+          [
+            306.74700927734375,
+            454.88702392578125
+          ]
+        ]
+      ],
+      "context": "WHEN education fails to keep pace with technology, the result is inequality.",
+      "context_source": "pdf",
+      "context_status": "sentence",
+      "warnings": []
+    },
+    {
+      "id": "0b5a50d29472ec69-p1-a57",
+      "term": "fall behind",
+      "raw_text": "fall behind",
+      "kind": "phrase",
+      "page": 1,
+      "rect": [
+        178.76699829101562,
+        482.8710021972656,
+        234.10800170898438,
+        497.36700439453125
+      ],
+      "quads": [
+        [
+          [
+            178.76699829101562,
+            482.8710021972656
+          ],
+          [
+            234.10800170898438,
+            482.8710021972656
+          ],
+          [
+            178.76699829101562,
+            497.36700439453125
+          ],
+          [
+            234.10800170898438,
+            497.36700439453125
+          ]
+        ]
+      ],
+      "context": "Without the skills to stay useful as innovations arrive, workers suffer—and if enough of them fall behind, society starts to fall apart.",
+      "context_source": "pdf",
+      "context_status": "sentence",
+      "warnings": []
+    },
+    {
+      "id": "0b5a50d29472ec69-p1-a61",
+      "term": "fall apart",
+      "raw_text": "fall apart",
+      "kind": "phrase",
+      "page": 1,
+      "rect": [
+        329.6759948730469,
+        482.8710021972656,
+        376.1159973144531,
+        497.36700439453125
+      ],
+      "quads": [
+        [
+          [
+            329.6759948730469,
+            482.8710021972656
+          ],
+          [
+            376.1159973144531,
+            482.8710021972656
+          ],
+          [
+            329.6759948730469,
+            497.36700439453125
+          ],
+          [
+            376.1159973144531,
+            497.36700439453125
+          ]
+        ]
+      ],
+      "context": "Without the skills to stay useful as innovations arrive, workers suffer—and if enough of them fall behind, society starts to fall apart.",
+      "context_source": "pdf",
+      "context_status": "sentence",
+      "warnings": []
+    },
+    {
+      "id": "0b5a50d29472ec69-p1-a65",
+      "term": "heralding",
+      "raw_text": "heralding",
+      "kind": "word",
+      "page": 1,
+      "rect": [
+        371.1990051269531,
+        503.99102783203125,
+        420.7590026855469,
+        518.4869995117188
+      ],
+      "quads": [
+        [
+          [
+            371.1990051269531,
+            503.99102783203125
+          ],
+          [
+            420.7590026855469,
+            503.99102783203125
+          ],
+          [
+            371.1990051269531,
+            518.4869995117188
+          ],
+          [
+            420.7590026855469,
+            518.4869995117188
+          ]
+        ]
+      ],
+      "context": "That fundamental insight seized reformers in the Industrial Revolution, heralding state-funded universal schooling.",
+      "context_source": "pdf",
+      "context_status": "sentence",
+      "warnings": []
+    },
+    {
+      "id": "0b5a50d29472ec69-p1-a69",
+      "term": "spread over decades",
+      "raw_text": "spread over decades",
+      "kind": "phrase",
+      "page": 1,
+      "rect": [
+        90.95059967041016,
+        567.3510131835938,
+        204.0749969482422,
+        581.8470458984375
+      ],
+      "quads": [
+        [
+          [
+            90.95059967041016,
+            567.3510131835938
+          ],
+          [
+            204.0749969482422,
+            567.3510131835938
+          ],
+          [
+            90.95059967041016,
+            581.8470458984375
+          ],
+          [
+            204.0749969482422,
+            581.8470458984375
+          ]
+        ]
+      ],
+      "context": "The combination of education and innovation, spread over decades, led to a remarkable flowering of prosperity.",
+      "context_source": "pdf",
+      "context_status": "sentence",
+      "warnings": []
+    },
+    {
+      "id": "0b5a50d29472ec69-p1-a73",
+      "term": "cramming",
+      "raw_text": "cramming",
+      "kind": "word",
+      "page": 1,
+      "rect": [
+        128.9669952392578,
+        644.8710327148438,
+        182.5469970703125,
+        659.3670043945312
+      ],
+      "quads": [
+        [
+          [
+            128.9669952392578,
+            644.8710327148438
+          ],
+          [
+            182.5469970703125,
+            644.8710327148438
+          ],
+          [
+            128.9669952392578,
+            659.3670043945312
+          ],
+          [
+            182.5469970703125,
+            659.3670043945312
+          ]
+        ]
+      ],
+      "context": "This time, however, working lives are so lengthy and so fast-changing that simply cramming more schooling in at the start is not enough.",
+      "context_source": "pdf",
+      "context_status": "sentence",
+      "warnings": []
+    },
+    {
+      "id": "0b5a50d29472ec69-p1-a77",
+      "term": "sets out",
+      "raw_text": "sets out,",
+      "kind": "phrase",
+      "page": 1,
+      "rect": [
+        349.4309997558594,
+        701.031005859375,
+        395.6669921875,
+        715.5270385742188
+      ],
+      "quads": [
+        [
+          [
+            349.4309997558594,
+            701.031005859375
+          ],
+          [
+            395.6669921875,
+            701.031005859375
+          ],
+          [
+            349.4309997558594,
+            715.5270385742188
+          ],
+          [
+            395.6669921875,
+            715.5270385742188
+          ]
+        ]
+      ],
+      "context": "Unfortunately, as our special report in this issue sets out, the lifelong learning that exists today mainly benefits high achievers—and is therefore more likely to exacerbate inequality than diminish it.",
+      "context_source": "pdf",
+      "context_status": "sentence",
+      "warnings": []
+    },
+    {
+      "id": "0b5a50d29472ec69-p2-a81",
+      "term": "top-ups",
+      "raw_text": "top-ups",
+      "kind": "word",
+      "page": 2,
+      "rect": [
+        395.2430114746094,
+        174.71099853515625,
+        437.4800109863281,
+        189.20703125
+      ],
+      "quads": [
+        [
+          [
+            395.2430114746094,
+            174.71099853515625
+          ],
+          [
+            437.4800109863281,
+            174.71099853515625
+          ],
+          [
+            395.2430114746094,
+            189.20703125
+          ],
+          [
+            437.4800109863281,
+            189.20703125
+          ]
+        ]
+      ],
+      "context": "The classic model of education—a burst at the start and top-ups through company training—is breaking down.",
+      "context_source": "pdf",
+      "context_status": "sentence",
+      "warnings": []
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,10 @@
+# Phase 2: AI vocabulary and flashcards
+
+User authorized continuing the previously specified product. Implement inline, no renewed design gate.
+
+1. Backend: bounded single-entry POST /api/explain using OpenAI Responses structured JSON. Chinese meaning, English definition, part of speech, contextual explanation, supplemental English/Chinese example, phrase usage notes. Require context, differentiate word/phrase. Handle missing key, refusal, timeout, auth, quota and malformed output without substitutes. /api/ai/status exposes configured boolean and model only. Unit tests use SDK + HTTP MockTransport; never claim them as live API validation.
+2. Frontend: optional explanation and review events extend v1 entries backward-compatibly. Invalidate stale AI after term/context changes. Confirm then batch generate missing entries, persist each success, progress and stop control, per-entry errors and retry. Keep source context unchanged. Key stays on backend; disclose text sent to OpenAI. No fake demo data in product.
+3. Flashcards: derive from confirmed entries with matching explanation fingerprint. Front English term; back meanings and separately labelled source/AI examples. Flip with keyboard-accessible button; three feedback ratings saved with timestamp and unique ID, next card only after successful save. Finite session and completion summary, no FSRS claim. Repository operation targets latest saved entry to avoid overwriting another entry.
+4. Tests: SDK request/response contract and failures; v1 load and explanation persistence/invalidation; card eligibility and feedback append; browser missing-key state and fixture-only full learning flow. Repeat existing parser and browser regressions. Review, build, preview same localhost:3000 origin to preserve existing browser storage.
+
+Decisions: source copy to new writable workspace, same origin migration; configurable OPENAI_MODEL default gpt-4.1-mini; no key requested in chat; no original PDF uploaded to OpenAI. All future decisions and evidence recorded in docs/phase2-validation.md.
