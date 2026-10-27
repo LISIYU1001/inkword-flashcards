@@ -14,7 +14,7 @@
 ## Progress
 
 - [x] Task 1: Public API boundary and static frontend
-- [ ] Task 2: Koyeb-safe backend boundary
+- [x] Task 2: Koyeb-safe backend boundary
 - [ ] Task 3: Cross-origin end-to-end behavior
 - [ ] Task 4: Platform configuration and handoff
 
@@ -24,4 +24,11 @@
 - GREEN: frontend unit tests: 16 passed; TypeScript check passed.
 - Static build: Next.js exported `/` and `frontend/out/index.html` exists.
 - Preserved local preview by serving the static `out` directory from `Start.ps1`; retained a failed upload in memory and exposed a retry action for free-tier cold starts.
+
+## Task 2 evidence
+
+- RED: focused tests failed because `app.public_access` did not exist.
+- GREEN: 63 backend tests passed with the user-owned WPS PDF, including explicit CORS, unsafe-origin rejection, per-client minute/day limits, and 429-before-provider behavior.
+- Added a non-root Python image, environment-driven `${PORT:-8000}`, and a Docker context that excludes secrets, tests, caches, and fixtures.
+- Local Docker is not installed, so image construction is deferred to Koyeb's remote builder. Cost if wrong: a container-only packaging issue may be discovered during the platform build; the full application suite has passed against the same dependency manifest.
 
